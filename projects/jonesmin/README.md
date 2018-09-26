@@ -1,2 +1,2 @@
-Mindy Jones jonesmin
+This is my assignment-1 submission!
 
