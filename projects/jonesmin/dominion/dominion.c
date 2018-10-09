@@ -652,7 +652,7 @@ int smithyCardEffect(int currentPlayer, struct gameState *state, int handPos) {
   }
 		
   //discard card from hand
-  discardCard(handPos, currentPlayer, state, 0);
+  discardCard(handPos + 1, currentPlayer, state, 0);
   return 0;
 }
 
@@ -669,7 +669,7 @@ int adventurerCardEffect(struct gameState *state, int currentPlayer) {
 	}
 	drawCard(currentPlayer, state);
 	cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-	if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+	if (cardDrawn == copper || cardDrawn == silver)
 	  drawntreasure++;
 	else{
 	  temphand[z]=cardDrawn;
@@ -677,7 +677,7 @@ int adventurerCardEffect(struct gameState *state, int currentPlayer) {
 	  z++;
 	}
       }
-      while(z-1>=0){
+      while(z-2 >= 0){
 	state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
 	z=z-1;
       }
@@ -699,7 +699,7 @@ int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int 
 	  return -1;
 	}
 
-      if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) )
+      if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) + 1 )
 	{
 	  return -1;
 	}
@@ -714,7 +714,7 @@ int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int 
 	{
 	  if (state->hand[currentPlayer][i] == j)
 	    {
-	      discardCard(i, currentPlayer, state, 0);			
+	      discardCard(i + 1, currentPlayer, state, 0);
 	      break;
 	    }
 	}
@@ -740,7 +740,7 @@ int j;
 int i;
    j = state->hand[currentPlayer][choice1];  //store card we will trash
 
-      if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) )
+      if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) + 1 )
 	{
 	  return -1;
 	}
