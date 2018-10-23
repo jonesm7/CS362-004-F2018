@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int isGameOver(struct gameState *state) {
@@ -39,6 +42,7 @@ int main() {
   }
   
   struct gameState* state2 = malloc(sizeof(struct gameState));
+  int i;
   for (i = 0; i < 25; i++) {
     state2->supplyCount[i] = 10;
   }

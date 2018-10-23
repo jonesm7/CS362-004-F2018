@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
@@ -40,15 +43,15 @@ int main() {
   } else{
     printf("FAIL: cardEffect(smithy): playerCardCount has increased by one.");
   }
-  if(state1->discardCount == 1) {
+  if(state1->discardCount[playerIndex] == 1) {
     printf("PASS: cardEffect(smithy): only one card was played.");
   } else{ 
-    printf("FAIL: cardEffect(smithy): something other than one card was played.")
+    printf("FAIL: cardEffect(smithy): something other than one card was played.");
   }
   if(state1->discard[playerIndex][0] == smithy) {
     printf("PASS: cardEffect(smithy): the smithy card was discarded.");
   } else{ 
-    printf("FAIL: cardEffect(smithy): the smithy card was not discarded.")
+    printf("FAIL: cardEffect(smithy): the smithy card was not discarded.");
   }
 
 }

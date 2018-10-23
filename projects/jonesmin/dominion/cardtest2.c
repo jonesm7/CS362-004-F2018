@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
@@ -44,7 +47,7 @@ int main() {
     state1->deck[playerIndex][i] = copper;
   }
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
-  if(state1->handCount[playerIndex} == 6) {
+  if(state1->handCount[playerIndex] == 6) {
     printf("PASS: cardEffect(adventurer): handCount is 6");
   } else{
     printf("FAIL: cardEffect(adventurer): handCount is not 6.");
