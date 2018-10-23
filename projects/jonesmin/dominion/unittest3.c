@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int updateCoins(int player, struct gameState *state, int bonus)
@@ -31,14 +34,6 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 */
 
-int main() {
-  testCoin(smithy, 0, 0);
-  testCoin(copper, 1, 0);
-  testCoin(silver, 2, 0);
-  testCoin(gold, 3, 0);
-  testCoin(smithy, 4, 4);
-}
-
 void testCoin(int cardType, int coinAmount, int bonus) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
   int playerIndex = 0;
@@ -51,3 +46,11 @@ void testCoin(int cardType, int coinAmount, int bonus) {
     printf("FAIL: updateCoins: coins for cardType %d and bonus %d is %d.", cardType, bonus, coinAmount);
   }
 }
+int main() {
+  testCoin(smithy, 0, 0);
+  testCoin(copper, 1, 0);
+  testCoin(silver, 2, 0);
+  testCoin(gold, 3, 0);
+  testCoin(smithy, 4, 4);
+}
+

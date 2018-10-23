@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int scoreFor (int player, struct gameState *state) {
@@ -41,28 +44,6 @@ int scoreFor (int player, struct gameState *state) {
 }
 */
 
-int main() {
-  testHandCardScore(curse, -1);
-  testHandCardScore(estate, 1);
-  testHandCardScore(duchy, 3);
-  testHandCardScore(provice, 6);
-  testHandCardScore(great_hall, 1);
-  testHandGardenScore();
-  
-  testDiscardCardScore(curse, -1);
-  testDiscardCardScore(estate, 1);
-  testDiscardCardScore(duchy, 3);
-  testDiscardCardScore(provice, 6);
-  testDiscardCardScore(great_hall, 1);
-  testDiscardGardenScore();
-  
-  testDeckCardScore(curse, -1);
-  testDeckCardScore(estate, 1);
-  testDeckCardScore(duchy, 3);
-  testDeckCardScore(provice, 6);
-  testDeckCardScore(great_hall, 1);
-  testDeckGardenScore();
-}
 void testHandCardScore(int card, int score) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
   int playerIndex = 0;
@@ -98,9 +79,9 @@ void testHandGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in hand is %d.", card, score);
+    printf("PASS: scoreFor: score for gardens in hand is %d.", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in hand is %d.", card, score);
+    printf("FAIL: scoreFor: score for gardens in hand is %d.", score);
   }
 }
 void testDiscardCardScore(int card, int score) {
@@ -137,9 +118,9 @@ void testDiscardGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in discard pile is %d.", card, score);
+    printf("PASS: scoreFor: score for gardens in discard pile is %d.", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in discard pile is %d.", card, score);
+    printf("FAIL: scoreFor: score for gardens in discard pile is %d.", score);
   }
 }
 
@@ -177,8 +158,30 @@ void testDeckGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in deck pile is %d.", card, score);
+    printf("PASS: scoreFor: score for gardens in deck pile is %d.", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in deck pile is %d.", card, score);
+    printf("FAIL: scoreFor: score for gardens in deck pile is %d.", score);
   }
+}
+int main() {
+  testHandCardScore(curse, -1);
+  testHandCardScore(estate, 1);
+  testHandCardScore(duchy, 3);
+  testHandCardScore(province, 6);
+  testHandCardScore(great_hall, 1);
+  testHandGardenScore();
+  
+  testDiscardCardScore(curse, -1);
+  testDiscardCardScore(estate, 1);
+  testDiscardCardScore(duchy, 3);
+  testDiscardCardScore(province, 6);
+  testDiscardCardScore(great_hall, 1);
+  testDiscardGardenScore();
+  
+  testDeckCardScore(curse, -1);
+  testDeckCardScore(estate, 1);
+  testDeckCardScore(duchy, 3);
+  testDeckCardScore(province, 6);
+  testDeckCardScore(great_hall, 1);
+  testDeckGardenScore();
 }

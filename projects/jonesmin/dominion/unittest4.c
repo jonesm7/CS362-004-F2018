@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dominion.h"
 
 /*
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
@@ -44,7 +47,7 @@ int main() {
   int playerIndex = 0;
   int handPos1 = 0;
   state1->handCount[playerIndex] = 1;
-  state1->hand[handPos1] = smithy;
+  state1->hand[playerIndex][handPos1] = smithy;
   discardCard(handPos1, playerIndex, state1, 1);
   if(state1->hand[playerIndex][handPos1] == -1) {
     printf("PASS: discardCard: discarded card is -1.");
@@ -57,8 +60,8 @@ int main() {
     printf("FAIL: discardCard: hand size is not 0.");
   }
   state1->handCount[playerIndex] = 2;
-  state1->hand[handPos1] = smithy;
-  state1->hand[1] = copper;
+  state1->hand[playerIndex][handPos1] = smithy;
+  state1->hand[playerIndex][1] = copper;
   state1->playedCardCount = 0;
   discardCard(handPos1, playerIndex, state1, 0);
   if(state1->hand[playerIndex][handPos1] == copper) {
