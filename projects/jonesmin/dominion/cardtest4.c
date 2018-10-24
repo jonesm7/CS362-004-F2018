@@ -47,7 +47,7 @@ int main() {
   state1->deck[playerIndex][state1->deckCount[playerIndex]] = copper;
   cardEffect(village, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(5, state1->handCount[playerIndex], "cardEffect(village): handCount");
-  checkIntEquals(copper, state1->hand[playerIndex][4], "cardEffect(village): last card");
+  checkIntEquals(copper, state1->hand[playerIndex][0], "cardEffect(village): first card");
   checkIntEquals(3, state1->numActions, "cardEffect(village): numActions");
 }
 

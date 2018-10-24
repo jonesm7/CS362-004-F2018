@@ -57,8 +57,8 @@ int main() {
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(6, state1->handCount[playerIndex], "cardEffect(adventurer): handCount");
   checkIntEquals(copper, state1->hand[playerIndex][5], "cardEffect(adventurer): last card");
-  checkIntEquals(1, state1->discardCount[playerIndex], "cardEffect(adventurer): discarded count");
-  checkIntEquals(adventurer, state1->discard[playerIndex][0], "cardEffect(adventurer): discarded card");
+  checkIntEquals(1, state1->playedCardCount, "cardEffect(adventurer): discarded count");
+  checkIntEquals(adventurer, state1->playedCards[0], "cardEffect(adventurer): discarded card");
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
@@ -68,8 +68,8 @@ int main() {
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(6, state1->handCount[playerIndex], "cardEffect(adventurer): handCount");
   checkIntEquals(silver, state1->hand[playerIndex][5], "cardEffect(adventurer): last card");
-  checkIntEquals(2, state1->discardCount[playerIndex], "cardEffect(adventurer): discarded count");
-  checkIntEquals(smithy, state1->discard[playerIndex][0], "cardEffect(adventurer): discarded card");
+  checkIntEquals(2, state1->playedCardCount, "cardEffect(adventurer): discarded count");
+  checkIntEquals(smithy, state1->playedCards[0], "cardEffect(adventurer): discarded card");
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
