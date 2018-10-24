@@ -1,0 +1,130 @@
+Running tests:
+unittest1.c:
+PASS: isGameOver: when province cards ahve all been used: (1)
+PASS: isGameOver: when three card types have been completely used up: (1)
+PASS: isGameOver: when no cards are all used up: (0)
+TEST SUCCESSFULLY COMPLETED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+unittest2.c:
+Checking score for card type 0
+PASS: scoreFor: score for card in hand: (-1)
+Checking score for card type 1
+PASS: scoreFor: score for card in hand: (1)
+Checking score for card type 2
+PASS: scoreFor: score for card in hand: (3)
+Checking score for card type 3
+PASS: scoreFor: score for card in hand: (6)
+Checking score for card type 16
+PASS: scoreFor: score for card in hand: (1)
+FAIL: scoreFor: score for gardens in hand: expected != actual (1 != 0)
+Checking score for card type 0
+FAIL: scoreFor: score for card in discard pile: expected != actual (-1 != -2)
+Checking score for card type 1
+FAIL: scoreFor: score for card in discard pile: expected != actual (1 != 0)
+Checking score for card type 2
+FAIL: scoreFor: score for card in discard pile: expected != actual (3 != 2)
+Checking score for card type 3
+FAIL: scoreFor: score for card in discard pile: expected != actual (6 != 5)
+Checking score for card type 16
+FAIL: scoreFor: score for card in discard pile: expected != actual (1 != 0)
+FAIL: scoreFor: score for gardens in discard pile: expected != actual (1 != 0)
+Checking score for card type 0
+FAIL: scoreFor: score for card in deck pile: expected != actual (-1 != 0)
+Checking score for card type 1
+FAIL: scoreFor: score for card in deck pile: expected != actual (1 != 0)
+Checking score for card type 2
+FAIL: scoreFor: score for card in deck pile: expected != actual (3 != 0)
+Checking score for card type 3
+FAIL: scoreFor: score for card in deck pile: expected != actual (6 != 0)
+Checking score for card type 16
+FAIL: scoreFor: score for card in deck pile: expected != actual (1 != 0)
+FAIL: scoreFor: score for gardens in deck pile: expected != actual (1 != 0)
+TEST FAILED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+unittest3.c:
+Checking coins for card type 13 and bonus 0
+PASS: updateCoins: sum of coins: (0)
+Checking coins for card type 4 and bonus 0
+PASS: updateCoins: sum of coins: (1)
+Checking coins for card type 5 and bonus 0
+PASS: updateCoins: sum of coins: (2)
+Checking coins for card type 6 and bonus 0
+PASS: updateCoins: sum of coins: (3)
+Checking coins for card type 13 and bonus 4
+PASS: updateCoins: sum of coins: (4)
+TEST SUCCESSFULLY COMPLETED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+unittest4.c:
+PASS: discardCard: discarded card: (-1)
+PASS: hand size: (0)
+PASS: discardCard: discarded card [0]: (4)
+PASS: discardCard: discarded card [1]: (-1)
+PASS: discardCard: hand size: (1)
+PASS: discardCard: played card count: (1)
+PASS: discardCard: played card: (13)
+TEST SUCCESSFULLY COMPLETED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+cardtest1.c:
+PASS: cardEffect(smithy): handCount: (7)
+PASS: cardEffect(smithy): played card count: (1)
+FAIL: cardEffect(smithy): discarded card: expected != actual (13 != 4)
+TEST FAILED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+cardtest2.c:
+FAIL: cardEffect(adventurer): handCount (copper deck): expected != actual (6 != 7)
+PASS: cardEffect(adventurer): last card (copper deck): (4)
+FAIL: cardEffect(adventurer): discarded count (copper deck): expected != actual (1 != 0)
+FAIL: cardEffect(adventurer): discarded card (copper deck): expected != actual (7 != 0)
+FAIL: cardEffect(adventurer): handCount (gold deck): expected != actual (6 != 5)
+PASS: cardEffect(adventurer): last card (gold deck): (6)
+FAIL: cardEffect(adventurer): discarded count (gold deck): expected != actual (1 != 0)
+FAIL: cardEffect(adventurer): discarded card (gold deck): expected != actual (7 != 0)
+FAIL: cardEffect(adventurer): handCount (silver deck + smithy): expected != actual (6 != 7)
+PASS: cardEffect(adventurer): last card (silver deck + smithy): (5)
+FAIL: cardEffect(adventurer): discarded count (silver deck + smithy): expected != actual (2 != 0)
+FAIL: cardEffect(adventurer): discarded card (silver deck + smithy): expected != actual (13 != 0)
+FAIL: cardEffect(adventurer): handCount (smithy deck): expected != actual (4 != 5)
+TEST FAILED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+cardtest3.c:
+PASS: cardEffect(mine): handCount: (4)
+PASS: cardEffect(mine): first card: (5)
+FAIL: cardEffect(mine): second card: expected != actual (1 != 4)
+FAIL: cardEffect(mine): played card count: expected != actual (1 != 2)
+PASS: cardEffect(mine): discarded card: (11)
+PASS: cardEffect(mine): converting wrong type: (-1)
+FAIL: cardEffect(mine): choosing a non treasure card: expected != actual (-1 != 0)
+FAIL: cardEffect(mine): choosing treasure with too high a value: expected != actual (-1 != 0)
+PASS: cardEffect(mine): choosing an invalid card to convert to.: (-1)
+TEST FAILED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
+cardtest4.c:
+PASS: cardEffect(village): handCount: (5)
+PASS: cardEffect(village): first card: (4)
+PASS: cardEffect(village): numActions: (3)
+TEST SUCCESSFULLY COMPLETED
+File 'dominion.c'
+Lines executed:40.32% of 558
+Creating 'dominion.c.gcov'
+
