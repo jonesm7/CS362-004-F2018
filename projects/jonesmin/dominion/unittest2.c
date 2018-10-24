@@ -58,6 +58,14 @@ void testHandCardScore(int card, int score) {
     printf("FAIL: scoreFor: score for card type %d in hand is %d.\n", card, score);
   }
 }
+
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
   
 void testHandGardenScore() {
   struct gameState* state1 = malloc(sizeof(struct gameState));
@@ -78,11 +86,7 @@ void testHandGardenScore() {
   state1->hand[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in hand is %d.\n", score);
-  } else {
-    printf("FAIL: scoreFor: score for gardens in hand is %d.\n", score);
-  }
+  checkIntEquals(result1, score, "scoreFor: score for gardens in hand");
 }
 void testDiscardCardScore(int card, int score) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
