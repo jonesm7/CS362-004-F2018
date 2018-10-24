@@ -53,7 +53,7 @@ int main() {
   checkIntEquals(1, state1->playedCardCount, "cardEffect(adventurer): discarded count (copper deck)");
   checkIntEquals(adventurer, state1->playedCards[0], "cardEffect(adventurer): discarded card (copper deck)");
   // check the other player's hand
-  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  checkIntEquals(0, state1->handCount[1], "cardEffect(adventurer): other player's hand");
   // check supply piles that shouldn't change
   checkCardPilesDontChange(state1, 1, 1, 1);
 
@@ -67,7 +67,7 @@ int main() {
   checkIntEquals(1, state1->playedCardCount, "cardEffect(adventurer): discarded count (gold deck)");
   checkIntEquals(adventurer, state1->playedCards[0], "cardEffect(adventurer): discarded card (gold deck)");
   // check the other player's hand
-  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  checkIntEquals(0, state1->handCount[1], "cardEffect(adventurer): other player's hand");
   // check supply piles that shouldn't change
   checkCardPilesDontChange(state1, 1, 1, 1);
   
@@ -82,7 +82,7 @@ int main() {
   checkIntEquals(2, state1->playedCardCount, "cardEffect(adventurer): discarded count (silver deck + smithy)");
   checkIntEquals(smithy, state1->playedCards[0], "cardEffect(adventurer): discarded card (silver deck + smithy)");
   // check the other player's hand
-  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  checkIntEquals(0, state1->handCount[1], "cardEffect(adventurer): other player's hand");
   // check supply piles that shouldn't change
   checkCardPilesDontChange(state1, 1, 1, 1);
 
@@ -93,7 +93,7 @@ int main() {
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(4, state1->handCount[playerIndex], "cardEffect(adventurer): handCount (smithy deck)");
   // check the other player's hand
-  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  checkIntEquals(0, state1->handCount[1], "cardEffect(adventurer): other player's hand");
   // check supply piles that shouldn't change
   checkCardPilesDontChange(state1, 1, 1, 1);
 
