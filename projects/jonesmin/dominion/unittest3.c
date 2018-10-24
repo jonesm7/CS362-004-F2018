@@ -34,11 +34,14 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 */
 
+int anyFailed = 0;
+
 void checkIntEquals(int expected, int actual, char* description) {
   if (expected == actual) {
     printf("PASS: %s: (%d)\n", description, actual);
   } else {
     printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+    anyFailed = 1;
   }
 }
 
@@ -57,5 +60,11 @@ int main() {
   testCoin(silver, 2, 0);
   testCoin(gold, 3, 0);
   testCoin(smithy, 4, 4);
+  
+  if (!anyFailed) {
+    printf("TEST SUCCESSFULLY COMPLETED\n");
+  } else {
+    printf("TEST FAILED\n");
+  }
 }
 
