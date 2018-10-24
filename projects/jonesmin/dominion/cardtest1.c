@@ -43,7 +43,6 @@ int main() {
   cardEffect(smithy, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(7, state1->handCount[playerIndex], "cardEffect(smithy): handCount");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(smithy): played card count");
-  checkIntEquals(1, state1->discardCount[playerIndex], "cardEffect(smithy): discarded count");
-  checkIntEquals(smithy, state1->discard[playerIndex][0], "cardEffect(smithy): discarded card");
+  checkIntEquals(smithy, state1->playedCards[0], "cardEffect(smithy): discarded card");
 }
 
