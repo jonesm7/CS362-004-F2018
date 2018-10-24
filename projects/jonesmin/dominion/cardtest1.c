@@ -31,7 +31,7 @@ int main() {
   int playerIndex = 0;
   int randomSeed = 2;
   int numPlayers = 2;
-  initializeGame(numPlayers, gameKingdomCards, randomSeed, state1);
+  initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   int deckCount = state1->deckCount[playerIndex];
   // set top 3 cards in deck to cards we control
   state1->deck[playerIndex][deckCount-1] = baron;
