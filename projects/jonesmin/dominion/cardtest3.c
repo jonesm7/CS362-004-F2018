@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "dominion.h"
+#include "testhelpers.h"
 
 /*
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
@@ -46,17 +47,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 }
 */
-
-int anyFailed = 0;
-
-void checkIntEquals(int expected, int actual, char* description) {
-  if (expected == actual) {
-    printf("PASS: %s: (%d)\n", description, actual);
-  } else {
-    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
-    anyFailed = 1;
-  }
-}
 
 int main() {
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
@@ -110,7 +100,7 @@ int main() {
   int return4 = cardEffect(mine, 1, -1, -1, state1, 0, NULL);
   checkIntEquals(-1, return4, "cardEffect(mine): choosing an invalid card to convert to.");
   
-  if (!anyFailed) {
+  if (!getAnyFailed()) {
     printf("TEST SUCCESSFULLY COMPLETED\n");
   } else {
     printf("TEST FAILED\n");
