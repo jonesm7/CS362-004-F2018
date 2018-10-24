@@ -41,9 +41,9 @@ void testCoin(int cardType, int coinAmount, int bonus) {
   state1->hand[playerIndex][0] = cardType;
   updateCoins(playerIndex, state1, bonus);
   if(state1->coins == coinAmount) {
-    printf("PASS: updateCoins: coins for cardType %d and bonus %d is %d.", cardType, bonus, coinAmount);
+    printf("PASS: updateCoins: coins for cardType %d and bonus %d is %d.\n", cardType, bonus, coinAmount);
   } else {
-    printf("FAIL: updateCoins: coins for cardType %d and bonus %d is %d.", cardType, bonus, coinAmount);
+    printf("FAIL: updateCoins: coins for cardType %d and bonus %d is %d.\n", cardType, bonus, coinAmount);
   }
 }
 int main() {

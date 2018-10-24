@@ -32,26 +32,26 @@ int main() {
   int numPlayers = 2;
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
-  int 1;
+  int i;
   for(i = 0; i < 5; i++) {
-    state1->hand[payerIndex][i] = smithy;
+    state1->hand[playerIndex][i] = smithy;
   }
   state1->deck[playerIndex][state1->deckCount[playerIndex]] = copper;
   cardEffect(village, -1, -1, -1, state1, 0, NULL);
-  if(state1->handcount == 5) {
-    printf("PASS: cardEffect(village): handCount is 5.");
+  if(state1->handCount[playerIndex] == 5) {
+    printf("PASS: cardEffect(village): handCount is 5.\n");
   } else{
-    printf("FAIL: cardEffect(village): handCount is not 5.");
+    printf("FAIL: cardEffect(village): handCount is not 5.\n");
   }
-  if(state1->hand[4] == copper) {
-    printf("PASS: cardEffect(village): last card is a copper.");
+  if(state1->hand[playerIndex][4] == copper) {
+    printf("PASS: cardEffect(village): last card is a copper.\n");
   } else{
-    printf("FAIL: cardEffect(village): last card is not a copper.");
+    printf("FAIL: cardEffect(village): last card is not a copper.\n");
   }
   if(state1->numActions == 3) {
-    printf("PASS: cardEffect(village): numActoins is 3.");
+    printf("PASS: cardEffect(village): numActions is 3.\n");
   } else{
-    printf("FAIL: cardEffect(village): numActoins is not 3.");
+    printf("FAIL: cardEffect(village): numActions is not 3.\n");
   }
 }
 

@@ -53,9 +53,9 @@ void testHandCardScore(int card, int score) {
   state1->deckCount[playerIndex] = 0;
   int result1 = scoreFor(playerIndex, state1);
   if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in hand is %d.", card, score);
+    printf("PASS: scoreFor: score for card type %d in hand is %d.\n", card, score);
   } else {
-    printf("FAIL: scoreFor: score for card type %d in hand is %d.", card, score);
+    printf("FAIL: scoreFor: score for card type %d in hand is %d.\n", card, score);
   }
 }
   
@@ -79,9 +79,9 @@ void testHandGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in hand is %d.", score);
+    printf("PASS: scoreFor: score for gardens in hand is %d.\n", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in hand is %d.", score);
+    printf("FAIL: scoreFor: score for gardens in hand is %d.\n", score);
   }
 }
 void testDiscardCardScore(int card, int score) {
@@ -93,9 +93,9 @@ void testDiscardCardScore(int card, int score) {
   state1->deckCount[playerIndex] = 0;
   int result1 = scoreFor(playerIndex, state1);
   if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in discard pile is %d.", card, score);
+    printf("PASS: scoreFor: score for card type %d in discard pile is %d.\n", card, score);
   } else {
-    printf("FAIL: scoreFor: score for card type %d in discard pile is %d.", card, score);
+    printf("FAIL: scoreFor: score for card type %d in discard pile is %d.\n", card, score);
   }
 }
 void testDiscardGardenScore() {
@@ -118,9 +118,9 @@ void testDiscardGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in discard pile is %d.", score);
+    printf("PASS: scoreFor: score for gardens in discard pile is %d.\n", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in discard pile is %d.", score);
+    printf("FAIL: scoreFor: score for gardens in discard pile is %d.\n", score);
   }
 }
 
@@ -133,9 +133,9 @@ void testDeckCardScore(int card, int score) {
   state1->deck[playerIndex][0] = card;
   int result1 = scoreFor(playerIndex, state1);
   if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in deck pile is %d.", card, score);
+    printf("PASS: scoreFor: score for card type %d in deck pile is %d.\n", card, score);
   } else {
-    printf("FAIL: scoreFor: score for card type %d in deck pile is %d.", card, score);
+    printf("FAIL: scoreFor: score for card type %d in deck pile is %d.\n", card, score);
   }
 }
 void testDeckGardenScore() {
@@ -158,9 +158,9 @@ void testDeckGardenScore() {
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
   if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in deck pile is %d.", score);
+    printf("PASS: scoreFor: score for gardens in deck pile is %d.\n", score);
   } else {
-    printf("FAIL: scoreFor: score for gardens in deck pile is %d.", score);
+    printf("FAIL: scoreFor: score for gardens in deck pile is %d.\n", score);
   }
 }
 int main() {
