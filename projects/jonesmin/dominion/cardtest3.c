@@ -103,7 +103,7 @@ int main() {
   state1->hand[playerIndex][0] = mine;
   state1->hand[playerIndex][1] = silver;
     
-  int return3 = cardEffect(mine, 1, -1, -1, state1, 0, NULL);
-  checkIntEquals(-1, return3, "cardEffect(mine): choosing an invalid card to convert to.");
+  int return4 = cardEffect(mine, 1, -1, -1, state1, 0, NULL);
+  checkIntEquals(-1, return4, "cardEffect(mine): choosing an invalid card to convert to.");
 
 }
