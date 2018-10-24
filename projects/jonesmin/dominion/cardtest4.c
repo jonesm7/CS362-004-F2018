@@ -43,7 +43,7 @@ int main() {
   checkIntEquals(copper, state1->hand[playerIndex][0], "cardEffect(village): first card");
   checkIntEquals(3, state1->numActions, "cardEffect(village): numActions");
   // check the other player's hand
-  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  checkIntEquals(0, state1->handCount[1], "cardEffect(village): other player's hand");
   // check supply piles that shouldn't change
   checkCardPilesDontChange(state1, 1, 1, 1);
   
