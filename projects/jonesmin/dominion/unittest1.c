@@ -31,15 +31,19 @@ int isGameOver(struct gameState *state) {
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 int main() {
   struct gameState* state1 = malloc(sizeof(struct gameState));
   state1->supplyCount[province] = 0;
   int result1 = isGameOver(state1);
-  if(result1 == 1) {
-    printf("PASS: isGameOver: TRUE when province cards have all been used\n");
-  } else{
-    printf("FAIL: isGameOver: FALSE when province cards ahve all been used.\n");
-  }
+  checkIntEquals(1, result1, "isGameOver: when province cards ahve all been used");
   
   struct gameState* state2 = malloc(sizeof(struct gameState));
   int i;
@@ -50,20 +54,12 @@ int main() {
   state2->supplyCount[smithy] = 0;
   state2->supplyCount[village] = 0;
   int result2 = isGameOver(state2);
-  if(result2 == 1) {
-    printf("PASS: isGameOver: TRUE when three card types have been completely used up.\n");
-  } else{
-    printf("FAIL: isGameOver: FALSE when three card types have been completely used up.\n");
-  }
+  checkIntEquals(1, result2, "isGameOver: when three card types have been completely used up");
   
   struct gameState* state3 = malloc(sizeof(struct gameState));
   for (i = 0; i < 25; i++) {
     state3->supplyCount[i] = 10;
   }
   int result3 = isGameOver(state3);
-  if(result3 == 0) {
-    printf("PASS: isGameOver: FALSE when no cards are all used up.\n");
-  } else{
-    printf("FAIL: isGameOver: TRUE when no cards are all used up.\n");
-  }
+  checkIntEquals(0, result3, "isGameOver: when no cards are all used up");
 }

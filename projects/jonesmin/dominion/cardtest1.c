@@ -22,6 +22,14 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 int main() {
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
@@ -33,26 +41,9 @@ int main() {
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = smithy;
   cardEffect(smithy, -1, -1, -1, state1, 0, NULL);
-  if(state1->handCount[playerIndex] == 7) {
-    printf("PASS: cardEffect(smithy): handCount is seven\n");
-  } else{
-    printf("FAIL: cardEffect(smithy): handCount is not seven.\n");
-  }
-  if(state1->playedCardCount == 1) {
-    printf("PASS: cardEffect(smithy): playerCardCount has increased by one.\n");
-  } else{
-    printf("FAIL: cardEffect(smithy): playerCardCount has increased by one.\n");
-  }
-  if(state1->discardCount[playerIndex] == 1) {
-    printf("PASS: cardEffect(smithy): only one card was played.\n");
-  } else{ 
-    printf("FAIL: cardEffect(smithy): something other than one card was played.\n");
-  }
-  if(state1->discard[playerIndex][0] == smithy) {
-    printf("PASS: cardEffect(smithy): the smithy card was discarded.\n");
-  } else{ 
-    printf("FAIL: cardEffect(smithy): the smithy card was not discarded.\n");
-  }
-
+  checkIntEquals(7, state1->handCount[playerIndex], "cardEffect(smithy): handCount");
+  checkIntEquals(1, state1->playedCardCount, "cardEffect(smithy): played card count");
+  checkIntEquals(1, state1->discardCount[playerIndex], "cardEffect(smithy): discarded count");
+  checkIntEquals(smithy, state1->discard[playerIndex][0], "cardEffect(smithy): discarded card");
 }
 
