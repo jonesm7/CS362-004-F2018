@@ -52,7 +52,11 @@ int main() {
   checkIntEquals(copper, state1->hand[playerIndex][5], "cardEffect(adventurer): last card (copper deck)");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(adventurer): discarded count (copper deck)");
   checkIntEquals(adventurer, state1->playedCards[0], "cardEffect(adventurer): discarded card (copper deck)");
-  
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
+
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
     state1->deck[playerIndex][i] = gold;
@@ -62,6 +66,10 @@ int main() {
   checkIntEquals(gold, state1->hand[playerIndex][5], "cardEffect(adventurer): last card (gold deck)");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(adventurer): discarded count (gold deck)");
   checkIntEquals(adventurer, state1->playedCards[0], "cardEffect(adventurer): discarded card (gold deck)");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
@@ -73,6 +81,10 @@ int main() {
   checkIntEquals(silver, state1->hand[playerIndex][5], "cardEffect(adventurer): last card (silver deck + smithy)");
   checkIntEquals(2, state1->playedCardCount, "cardEffect(adventurer): discarded count (silver deck + smithy)");
   checkIntEquals(smithy, state1->playedCards[0], "cardEffect(adventurer): discarded card (silver deck + smithy)");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
@@ -80,6 +92,10 @@ int main() {
   }
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
   checkIntEquals(4, state1->handCount[playerIndex], "cardEffect(adventurer): handCount (smithy deck)");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
 
   if (!getAnyFailed()) {
     printf("TEST SUCCESSFULLY COMPLETED\n");

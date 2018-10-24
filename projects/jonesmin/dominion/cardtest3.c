@@ -58,6 +58,7 @@ int main() {
   int numPlayers = 2;
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
+  int initialSilver = state1->supplyCount[silver];
   state1->hand[playerIndex][0] = mine;
   state1->hand[playerIndex][1] = copper;
   int i;
@@ -71,6 +72,11 @@ int main() {
   checkIntEquals(estate, state1->hand[playerIndex][1], "cardEffect(mine): second card");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(mine): played card count");
   checkIntEquals(mine, state1->playedCards[0], "cardEffect(mine): discarded card");
+  checkIntEquals(initialSilver - 1, state1->supplyCount[silver], "cardEffect(mine): supply for silver");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 0);
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
@@ -78,6 +84,10 @@ int main() {
     
   int return1 = cardEffect(mine, 1, silver, -1, state1, 0, NULL);
   checkIntEquals(-1, return1, "cardEffect(mine): converting wrong type");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
@@ -85,6 +95,10 @@ int main() {
     
   int return2 = cardEffect(mine, 1, duchy, -1, state1, 0, NULL);
   checkIntEquals(-1, return2, "cardEffect(mine): choosing a non treasure card");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
@@ -92,6 +106,10 @@ int main() {
     
   int return3 = cardEffect(mine, 1, gold, -1, state1, 0, NULL);
   checkIntEquals(-1, return3, "cardEffect(mine): choosing treasure with too high a value");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
 
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
@@ -99,6 +117,10 @@ int main() {
     
   int return4 = cardEffect(mine, 1, -1, -1, state1, 0, NULL);
   checkIntEquals(-1, return4, "cardEffect(mine): choosing an invalid card to convert to.");
+  // check the other player's hand
+  checkIntEquals(5, state1->handCount[1], "cardEffect(adventurer): other player's hand");
+  // check supply piles that shouldn't change
+  checkCardPilesDontChange(state1, 1, 1, 1);
   
   if (!getAnyFailed()) {
     printf("TEST SUCCESSFULLY COMPLETED\n");
