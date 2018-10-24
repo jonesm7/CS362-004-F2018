@@ -98,4 +98,12 @@ int main() {
     
   int return3 = cardEffect(mine, 1, gold, -1, state1, 0, NULL);
   checkIntEquals(-1, return3, "cardEffect(mine): choosing treasure with too high a value");
+
+  initializeGame(numPlayers, kingdomCards, randomSeed, state1);
+  state1->hand[playerIndex][0] = mine;
+  state1->hand[playerIndex][1] = silver;
+    
+  int return3 = cardEffect(mine, 1, -1, -1, state1, 0, NULL);
+  checkIntEquals(-1, return3, "cardEffect(mine): choosing an invalid card to convert to.");
+
 }
