@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "dominion.h"
+#include "testhelpers.h"
 
 /*
 int scoreFor (int player, struct gameState *state) {
@@ -43,17 +44,6 @@ int scoreFor (int player, struct gameState *state) {
   return score;
 }
 */
-
-int anyFailed = 0;
-
-void checkIntEquals(int expected, int actual, char* description) {
-  if (expected == actual) {
-    printf("PASS: %s: (%d)\n", description, actual);
-  } else {
-    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
-    anyFailed = 1;
-  }
-}
 
 void testHandCardScore(int card, int score) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
@@ -175,7 +165,7 @@ int main() {
   testDeckCardScore(great_hall, 1);
   testDeckGardenScore();
   
-  if (!anyFailed) {
+  if (!getAnyFailed()) {
     printf("TEST SUCCESSFULLY COMPLETED\n");
   } else {
     printf("TEST FAILED\n");
