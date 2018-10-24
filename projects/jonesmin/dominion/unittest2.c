@@ -44,6 +44,14 @@ int scoreFor (int player, struct gameState *state) {
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 void testHandCardScore(int card, int score) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
   int playerIndex = 0;
@@ -52,19 +60,8 @@ void testHandCardScore(int card, int score) {
   state1->discardCount[playerIndex] = 0;
   state1->deckCount[playerIndex] = 0;
   int result1 = scoreFor(playerIndex, state1);
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in hand is %d.\n", card, score);
-  } else {
-    printf("FAIL: scoreFor: score for card type %d in hand is %d.\n", card, score);
-  }
-}
-
-void checkIntEquals(int expected, int actual, char* description) {
-  if (expected == actual) {
-    printf("PASS: %s: (%d)\n", description, actual);
-  } else {
-    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
-  }
+  printf("Checking score for card type %d\n", card);
+  checkIntEquals(score, result1, "scoreFor: score for card in hand");
 }
   
 void testHandGardenScore() {
@@ -86,7 +83,7 @@ void testHandGardenScore() {
   state1->hand[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
-  checkIntEquals(result1, score, "scoreFor: score for gardens in hand");
+  checkIntEquals(score, result1, "scoreFor: score for gardens in hand");
 }
 void testDiscardCardScore(int card, int score) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
@@ -96,11 +93,8 @@ void testDiscardCardScore(int card, int score) {
   state1->discard[playerIndex][0] = card;
   state1->deckCount[playerIndex] = 0;
   int result1 = scoreFor(playerIndex, state1);
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in discard pile is %d.\n", card, score);
-  } else {
-    printf("FAIL: scoreFor: score for card type %d in discard pile is %d.\n", card, score);
-  }
+  printf("Checking score for card type %d\n", card);
+  checkIntEquals(score, result1, "scoreFor: score for card in discard pile");
 }
 void testDiscardGardenScore() {
   struct gameState* state1 = malloc(sizeof(struct gameState));
@@ -121,11 +115,7 @@ void testDiscardGardenScore() {
   state1->discard[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in discard pile is %d.\n", score);
-  } else {
-    printf("FAIL: scoreFor: score for gardens in discard pile is %d.\n", score);
-  }
+  checkIntEquals(score, result1, "scoreFor: score for gardens in discard pile");
 }
 
 void testDeckCardScore(int card, int score) {
@@ -136,11 +126,8 @@ void testDeckCardScore(int card, int score) {
   state1->deckCount[playerIndex] = 1;
   state1->deck[playerIndex][0] = card;
   int result1 = scoreFor(playerIndex, state1);
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for card type %d in deck pile is %d.\n", card, score);
-  } else {
-    printf("FAIL: scoreFor: score for card type %d in deck pile is %d.\n", card, score);
-  }
+  printf("Checking score for card type %d\n", card);
+  checkIntEquals(score, result1, "scoreFor: score for card in deck pile");
 }
 void testDeckGardenScore() {
   struct gameState* state1 = malloc(sizeof(struct gameState));
@@ -161,11 +148,7 @@ void testDeckGardenScore() {
   state1->deck[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
   int score = 1;
-  if(result1 == score) {
-    printf("PASS: scoreFor: score for gardens in deck pile is %d.\n", score);
-  } else {
-    printf("FAIL: scoreFor: score for gardens in deck pile is %d.\n", score);
-  }
+  checkIntEquals(score, result1, "scoreFor: score for gardens in deck pile");
 }
 int main() {
   testHandCardScore(curse, -1);

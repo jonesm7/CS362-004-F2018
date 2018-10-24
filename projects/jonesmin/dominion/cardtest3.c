@@ -47,6 +47,14 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 int main() {
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
@@ -66,57 +74,29 @@ int main() {
     
   cardEffect(mine, 1, silver, -1, state1, 0, NULL);
 
-  if(state1->handCount[playerIndex] == 4) {
-    printf("PASS: cardEffect(mine): handCount is 4\n");
-  } else{
-    printf("FAIL: cardEffect(mine): handCount is not 4.\n");
-  }
-  if(state1->hand[playerIndex][3] == silver) {
-    printf("PASS: cardEffect(mine): last card is a silver.\n");
-  } else{
-    printf("FAIL: cardEffect(mine): last card is not a silver.\n");
-  }
-  if(state1->playedCardCount == 1) {
-    printf("PASS: cardEffect(mine): only one card was played.\n");
-  } else{ 
-    printf("FAIL: cardEffect(mine): something other than one card was played.\n");
-  }
-  if(state1->playedCards[0] == mine) {
-    printf("PASS: cardEffect(mine): the mine card was discarded.\n");
-  } else{ 
-    printf("FAIL: cardEffect(mine): the mine card was not discarded.\n");
-  }
-  
+  checkIntEquals(4, state1->handCount[playerIndex], "cardEffect(mine): handCount");
+  checkIntEquals(silver, state1->hand[playerIndex][3], "cardEffect(mine): last card");
+  checkIntEquals(1, state1->playedCardCount, "cardEffect(mine): played card count");
+  checkIntEquals(mine, state1->playedCards[0], "cardEffect(mine): discarded card");
+
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
   state1->hand[playerIndex][1] = smithy;
     
   int return1 = cardEffect(mine, 1, silver, -1, state1, 0, NULL);
-  if(return1 == -1) {
-    printf("PASS: cardEffect(mine): coverting wrong type returns -1.\n");
-  } else{
-    printf("FAIL: cardEffect(mine): coverting wrong type does not return -1.\n");
-  }
-  
+  checkIntEquals(-1, return1, "cardEffect(mine): converting wrong type");
+
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
   state1->hand[playerIndex][1] = silver;
     
   int return2 = cardEffect(mine, 1, duchy, -1, state1, 0, NULL);
-  if(return2 == -1) {
-    printf("PASS: cardEffect(mine): choosing a non treasure card returns -1.\n");
-  } else{
-    printf("FAIL: cardEffect(mine): choosing a non treasure card does not return -1.\n");
-  }
-    
+  checkIntEquals(-1, return2, "cardEffect(mine): choosing a non treasure card");
+
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
   state1->hand[playerIndex][0] = mine;
   state1->hand[playerIndex][1] = copper;
     
   int return3 = cardEffect(mine, 1, gold, -1, state1, 0, NULL);
-  if(return3 == -1) {
-    printf("PASS: cardEffect(mine): choosing treasure with too high a value returns -1.\n");
-  } else{
-    printf("FAIL: cardEffect(mine): choosing treasure with too high a value does not return -1.\n");
-  }
+  checkIntEquals(-1, return3, "cardEffect(mine): choosing treasure with too high a value");
 }

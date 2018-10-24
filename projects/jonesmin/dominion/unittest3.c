@@ -34,17 +34,22 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 void testCoin(int cardType, int coinAmount, int bonus) {
   struct gameState* state1 = malloc(sizeof(struct gameState));
   int playerIndex = 0;
   state1->handCount[playerIndex] = 1;
   state1->hand[playerIndex][0] = cardType;
   updateCoins(playerIndex, state1, bonus);
-  if(state1->coins == coinAmount) {
-    printf("PASS: updateCoins: coins for cardType %d and bonus %d is %d.\n", cardType, bonus, coinAmount);
-  } else {
-    printf("FAIL: updateCoins: coins for cardType %d and bonus %d is %d.\n", cardType, bonus, coinAmount);
-  }
+  printf("Checking coins for card type %d and bonus %d\n", cardType, bonus);
+  checkIntEquals(coinAmount, state1->coins, "updateCoins: sum of coins");
 }
 int main() {
   testCoin(smithy, 0, 0);

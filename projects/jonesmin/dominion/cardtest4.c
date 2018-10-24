@@ -22,6 +22,14 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 }
 */
 
+void checkIntEquals(int expected, int actual, char* description) {
+  if (expected == actual) {
+    printf("PASS: %s: (%d)\n", description, actual);
+  } else {
+    printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+  }
+}
+
 int main() {
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
@@ -38,20 +46,8 @@ int main() {
   }
   state1->deck[playerIndex][state1->deckCount[playerIndex]] = copper;
   cardEffect(village, -1, -1, -1, state1, 0, NULL);
-  if(state1->handCount[playerIndex] == 5) {
-    printf("PASS: cardEffect(village): handCount is 5.\n");
-  } else{
-    printf("FAIL: cardEffect(village): handCount is not 5.\n");
-  }
-  if(state1->hand[playerIndex][4] == copper) {
-    printf("PASS: cardEffect(village): last card is a copper.\n");
-  } else{
-    printf("FAIL: cardEffect(village): last card is not a copper.\n");
-  }
-  if(state1->numActions == 3) {
-    printf("PASS: cardEffect(village): numActions is 3.\n");
-  } else{
-    printf("FAIL: cardEffect(village): numActions is not 3.\n");
-  }
+  checkIntEquals(5, state1->handCount[playerIndex], "cardEffect(village): handCount");
+  checkIntEquals(copper, state1->hand[playerIndex][4], "cardEffect(village): last card");
+  checkIntEquals(3, state1->numActions, "cardEffect(village): numActions");
 }
 
