@@ -78,6 +78,7 @@ int main() {
   cardEffect(mine, 1, silver, -1, state1, 0, NULL);
   checkIntEquals(4, state1->handCount[playerIndex], "cardEffect(mine): handCount");
   checkIntEquals(silver, state1->hand[playerIndex][0], "cardEffect(mine): first card");
+  checkIntEquals(estate, state1->hand[playerIndex][1], "cardEffect(mine): second card");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(mine): played card count");
   checkIntEquals(mine, state1->playedCards[0], "cardEffect(mine): discarded card");
 
