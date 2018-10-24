@@ -5,7 +5,7 @@ PASS: isGameOver: when three card types have been completely used up: (1)
 PASS: isGameOver: when no cards are all used up: (0)
 TEST SUCCESSFULLY COMPLETED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:1.79% of 558
 Creating 'dominion.c.gcov'
 
 unittest2.c:
@@ -44,7 +44,7 @@ FAIL: scoreFor: score for card in deck pile: expected != actual (1 != 0)
 FAIL: scoreFor: score for gardens in deck pile: expected != actual (1 != 0)
 TEST FAILED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:7.71% of 558
 Creating 'dominion.c.gcov'
 
 unittest3.c:
@@ -60,7 +60,7 @@ Checking coins for card type 13 and bonus 4
 PASS: updateCoins: sum of coins: (4)
 TEST SUCCESSFULLY COMPLETED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:9.68% of 558
 Creating 'dominion.c.gcov'
 
 unittest4.c:
@@ -73,16 +73,54 @@ PASS: discardCard: played card count: (1)
 PASS: discardCard: played card: (13)
 TEST SUCCESSFULLY COMPLETED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:11.83% of 558
 Creating 'dominion.c.gcov'
 
 cardtest1.c:
 PASS: cardEffect(smithy): handCount: (7)
+FAIL: cardEffect(smithy): hand[-1]: expected != actual (15 != 16)
+FAIL: cardEffect(smithy): hand[-2]: expected != actual (16 != 15)
+FAIL: cardEffect(smithy): hand[-3]: expected != actual (17 != 4)
 PASS: cardEffect(smithy): played card count: (1)
 FAIL: cardEffect(smithy): discarded card: expected != actual (13 != 4)
+PASS: cardEffect(smithy): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 TEST FAILED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:28.67% of 558
 Creating 'dominion.c.gcov'
 
 cardtest2.c:
@@ -90,18 +128,158 @@ FAIL: cardEffect(adventurer): handCount (copper deck): expected != actual (6 != 
 PASS: cardEffect(adventurer): last card (copper deck): (4)
 FAIL: cardEffect(adventurer): discarded count (copper deck): expected != actual (1 != 0)
 FAIL: cardEffect(adventurer): discarded card (copper deck): expected != actual (7 != 0)
+PASS: cardEffect(adventurer): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 FAIL: cardEffect(adventurer): handCount (gold deck): expected != actual (6 != 5)
 PASS: cardEffect(adventurer): last card (gold deck): (6)
 FAIL: cardEffect(adventurer): discarded count (gold deck): expected != actual (1 != 0)
 FAIL: cardEffect(adventurer): discarded card (gold deck): expected != actual (7 != 0)
+PASS: cardEffect(adventurer): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 FAIL: cardEffect(adventurer): handCount (silver deck + smithy): expected != actual (6 != 7)
 PASS: cardEffect(adventurer): last card (silver deck + smithy): (5)
 FAIL: cardEffect(adventurer): discarded count (silver deck + smithy): expected != actual (2 != 0)
 FAIL: cardEffect(adventurer): discarded card (silver deck + smithy): expected != actual (13 != 0)
+PASS: cardEffect(adventurer): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 FAIL: cardEffect(adventurer): handCount (smithy deck): expected != actual (4 != 5)
+PASS: cardEffect(adventurer): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 TEST FAILED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:33.69% of 558
 Creating 'dominion.c.gcov'
 
 cardtest3.c:
@@ -110,19 +288,224 @@ PASS: cardEffect(mine): first card: (5)
 FAIL: cardEffect(mine): second card: expected != actual (1 != 4)
 FAIL: cardEffect(mine): played card count: expected != actual (1 != 2)
 PASS: cardEffect(mine): discarded card: (11)
+PASS: cardEffect(mine): supply for silver: (39)
+PASS: cardEffect(mine): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
 PASS: cardEffect(mine): converting wrong type: (-1)
+PASS: cardEffect(mine): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 FAIL: cardEffect(mine): choosing a non treasure card: expected != actual (-1 != 0)
+PASS: cardEffect(mine): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+FAIL: Supply - victory card: expected != actual (8 != 7)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 FAIL: cardEffect(mine): choosing treasure with too high a value: expected != actual (-1 != 0)
+PASS: cardEffect(mine): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+FAIL: Supply - treasure card: expected != actual (30 != 29)
 PASS: cardEffect(mine): choosing an invalid card to convert to.: (-1)
+PASS: cardEffect(mine): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 TEST FAILED
 File 'dominion.c'
-Lines executed:40.32% of 558
+Lines executed:39.25% of 558
 Creating 'dominion.c.gcov'
 
 cardtest4.c:
 PASS: cardEffect(village): handCount: (5)
 PASS: cardEffect(village): first card: (4)
 PASS: cardEffect(village): numActions: (3)
+PASS: cardEffect(village): other player's hand: (0)
+Checking kingdom card 7
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 10
+PASS: Supply - kindgom card: (8)
+Checking kingdom card 22
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 14
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 17
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 11
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 21
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 25
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 19
+PASS: Supply - kindgom card: (10)
+Checking kingdom card 13
+PASS: Supply - kindgom card: (10)
+Checking victory card 0
+PASS: Supply - victory card: (10)
+Checking victory card 1
+PASS: Supply - victory card: (8)
+Checking victory card 2
+PASS: Supply - victory card: (8)
+Checking victory card 3
+PASS: Supply - victory card: (8)
+Checking treasure card 4
+PASS: Supply - treasure card: (46)
+Checking treasure card 5
+PASS: Supply - treasure card: (40)
+Checking treasure card 6
+PASS: Supply - treasure card: (30)
 TEST SUCCESSFULLY COMPLETED
 File 'dominion.c'
 Lines executed:40.32% of 558
