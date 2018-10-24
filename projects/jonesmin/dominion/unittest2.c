@@ -70,15 +70,15 @@ void testHandGardenScore() {
   state1->handCount[playerIndex] = 4;
   int i;
   for(i = 0; i < 4; i++) {
-    state1->hand[playerIndex][i] = i + 1;
+    state1->hand[playerIndex][i] = copper;
   }
   state1->discardCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->discard[playerIndex][i] = i + 1;
+    state1->discard[playerIndex][i] = copper;
   }
-  state1->deckCount[playerIndex] = 0;
+  state1->deckCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->deck[playerIndex][i] = i + 1;
+    state1->deck[playerIndex][i] = copper;
   }
   state1->hand[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
@@ -102,15 +102,15 @@ void testDiscardGardenScore() {
   state1->handCount[playerIndex] = 4;
   int i;
   for(i = 0; i < 4; i++) {
-    state1->hand[playerIndex][i] = i + 1;
+    state1->hand[playerIndex][i] = copper;
   }
   state1->discardCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->discard[playerIndex][i] = i + 1;
+    state1->discard[playerIndex][i] = copper;
   }
-  state1->deckCount[playerIndex] = 0;
+  state1->deckCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->deck[playerIndex][i] = i + 1;
+    state1->deck[playerIndex][i] = copper;
   }
   state1->discard[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
@@ -135,15 +135,15 @@ void testDeckGardenScore() {
   state1->handCount[playerIndex] = 4;
   int i;
   for(i = 0; i < 4; i++) {
-    state1->hand[playerIndex][i] = i + 1;
+    state1->hand[playerIndex][i] = copper;
   }
   state1->discardCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->discard[playerIndex][i] = i + 1;
+    state1->discard[playerIndex][i] = copper;
   }
-  state1->deckCount[playerIndex] = 0;
+  state1->deckCount[playerIndex] = 4;
   for(i = 0; i < 4; i++) {
-    state1->deck[playerIndex][i] = i + 1;
+    state1->deck[playerIndex][i] = copper;
   }
   state1->deck[playerIndex][0] = gardens;
   int result1 = scoreFor(playerIndex, state1);
