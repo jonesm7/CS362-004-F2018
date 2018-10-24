@@ -44,11 +44,14 @@ int scoreFor (int player, struct gameState *state) {
 }
 */
 
+int anyFailed = 0;
+
 void checkIntEquals(int expected, int actual, char* description) {
   if (expected == actual) {
     printf("PASS: %s: (%d)\n", description, actual);
   } else {
     printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+    anyFailed = 1;
   }
 }
 
@@ -171,4 +174,10 @@ int main() {
   testDeckCardScore(province, 6);
   testDeckCardScore(great_hall, 1);
   testDeckGardenScore();
+  
+  if (!anyFailed) {
+    printf("TEST SUCCESSFULLY COMPLETED\n");
+  } else {
+    printf("TEST FAILED\n");
+  }
 }

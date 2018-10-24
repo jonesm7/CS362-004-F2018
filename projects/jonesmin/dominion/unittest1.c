@@ -31,11 +31,14 @@ int isGameOver(struct gameState *state) {
 }
 */
 
+int anyFailed = 0;
+
 void checkIntEquals(int expected, int actual, char* description) {
   if (expected == actual) {
     printf("PASS: %s: (%d)\n", description, actual);
   } else {
     printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+    anyFailed = 1;
   }
 }
 
@@ -62,4 +65,10 @@ int main() {
   }
   int result3 = isGameOver(state3);
   checkIntEquals(0, result3, "isGameOver: when no cards are all used up");
+  
+  if (!anyFailed) {
+    printf("TEST SUCCESSFULLY COMPLETED\n");
+  } else {
+    printf("TEST FAILED\n");
+  }
 }

@@ -22,11 +22,14 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 }
 */
 
+int anyFailed = 0;
+
 void checkIntEquals(int expected, int actual, char* description) {
   if (expected == actual) {
     printf("PASS: %s: (%d)\n", description, actual);
   } else {
     printf("FAIL: %s: expected != actual (%d != %d)\n", description, expected, actual);
+    anyFailed = 1;
   }
 }
 
@@ -44,5 +47,11 @@ int main() {
   checkIntEquals(7, state1->handCount[playerIndex], "cardEffect(smithy): handCount");
   checkIntEquals(1, state1->playedCardCount, "cardEffect(smithy): played card count");
   checkIntEquals(smithy, state1->playedCards[0], "cardEffect(smithy): discarded card");
+  
+  if (!anyFailed) {
+    printf("TEST SUCCESSFULLY COMPLETED\n");
+  } else {
+    printf("TEST FAILED\n");
+  }
 }
 
