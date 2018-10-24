@@ -50,14 +50,14 @@ int main() {
   state1->hand[playerIndex][handPos1] = smithy;
   discardCard(handPos1, playerIndex, state1, 1);
   if(state1->hand[playerIndex][handPos1] == -1) {
-    printf("PASS: discardCard: discarded card is -1.");
+    printf("PASS: discardCard: discarded card is -1.\n");
   } else {
-    printf("FAIL: discardCard: discarded card is not -1.");
+    printf("FAIL: discardCard: discarded card is not -1.\n");
   }
   if (state1->handCount[playerIndex] == 0) {
-    printf("PASS: discardCard: hand size is 0.");
+    printf("PASS: discardCard: hand size is 0.\n");
   } else {
-    printf("FAIL: discardCard: hand size is not 0.");
+    printf("FAIL: discardCard: hand size is not 0.\n");
   }
   state1->handCount[playerIndex] = 2;
   state1->hand[playerIndex][handPos1] = smithy;
@@ -65,28 +65,28 @@ int main() {
   state1->playedCardCount = 0;
   discardCard(handPos1, playerIndex, state1, 0);
   if(state1->hand[playerIndex][handPos1] == copper) {
-    printf("PASS: discardCard: discarded card is copper.");
+    printf("PASS: discardCard: discarded card is copper.\n");
   } else {
-    printf("FAIL: discardCard: discarded card is not copper.");
+    printf("FAIL: discardCard: discarded card is not copper.\n");
   }
   if(state1->hand[playerIndex][1] == -1) {
-    printf("PASS: discardCard: discarded card is -1.");
+    printf("PASS: discardCard: discarded card is -1.\n");
   } else {
-    printf("FAIL: discardCard: discarded card is not -1.");
+    printf("FAIL: discardCard: discarded card is not -1.\n");
   }
   if (state1->handCount[playerIndex] == 1) {
-    printf("PASS: discardCard: hand size is 1.");
+    printf("PASS: discardCard: hand size is 1.\n");
   } else {
-    printf("FAIL: discardCard: hand size is not 1.");
+    printf("FAIL: discardCard: hand size is not 1.\n");
   }
   if(state1->playedCardCount == 1) {
-    printf("PASS: discardCard: played card count is 1.");  
+    printf("PASS: discardCard: played card count is 1.\n");  
   } else {
-    printf("FAIL: discardCard: played card count is not 1.");
+    printf("FAIL: discardCard: played card count is not 1.\n");
   }
   if(state1->playedCards[0] == smithy) {
-    printf("PASS: discardCard: played card is smithy."); 
+    printf("PASS: discardCard: played card is smithy.\n"); 
   } else {
-    printf("FAIL: discardCard: played card count is not smithy."); 
+    printf("FAIL: discardCard: played card count is not smithy.\n"); 
   }
 }

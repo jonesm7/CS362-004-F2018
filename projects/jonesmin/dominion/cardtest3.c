@@ -67,24 +67,24 @@ int main() {
   cardEffect(mine, 1, silver, -1, state1, 0, NULL);
 
   if(state1->handCount[playerIndex] == 4) {
-    printf("PASS: cardEffect(mine): handCount is 4");
+    printf("PASS: cardEffect(mine): handCount is 4\n");
   } else{
-    printf("FAIL: cardEffect(mine): handCount is not 4.");
+    printf("FAIL: cardEffect(mine): handCount is not 4.\n");
   }
   if(state1->hand[playerIndex][3] == silver) {
-    printf("PASS: cardEffect(mine): last card is a silver.");
+    printf("PASS: cardEffect(mine): last card is a silver.\n");
   } else{
-    printf("FAIL: cardEffect(mine): last card is not a silver.");
+    printf("FAIL: cardEffect(mine): last card is not a silver.\n");
   }
   if(state1->playedCardCount == 1) {
-    printf("PASS: cardEffect(mine): only one card was played.");
+    printf("PASS: cardEffect(mine): only one card was played.\n");
   } else{ 
-    printf("FAIL: cardEffect(mine): something other than one card was played.")
+    printf("FAIL: cardEffect(mine): something other than one card was played.\n");
   }
-  if(state1->playedCard[0] == mine) {
-    printf("PASS: cardEffect(mine): the mine card was discarded.");
+  if(state1->playedCards[0] == mine) {
+    printf("PASS: cardEffect(mine): the mine card was discarded.\n");
   } else{ 
-    printf("FAIL: cardEffect(mine): the mine card was not discarded.")
+    printf("FAIL: cardEffect(mine): the mine card was not discarded.\n");
   }
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
@@ -93,9 +93,9 @@ int main() {
     
   int return1 = cardEffect(mine, 1, silver, -1, state1, 0, NULL);
   if(return1 == -1) {
-    printf("PASS: cardEffect(mine): coverting wrong type returns -1.");
+    printf("PASS: cardEffect(mine): coverting wrong type returns -1.\n");
   } else{
-    printf("FAIL: cardEffect(mine): coverting wrong type does not return -1.");
+    printf("FAIL: cardEffect(mine): coverting wrong type does not return -1.\n");
   }
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
@@ -104,9 +104,9 @@ int main() {
     
   int return2 = cardEffect(mine, 1, duchy, -1, state1, 0, NULL);
   if(return2 == -1) {
-    printf("PASS: cardEffect(mine): choosing a non treasure card returns -1.");
+    printf("PASS: cardEffect(mine): choosing a non treasure card returns -1.\n");
   } else{
-    printf("FAIL: cardEffect(mine): choosing a non treasure card does not return -1.");
+    printf("FAIL: cardEffect(mine): choosing a non treasure card does not return -1.\n");
   }
     
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
@@ -115,8 +115,8 @@ int main() {
     
   int return3 = cardEffect(mine, 1, gold, -1, state1, 0, NULL);
   if(return3 == -1) {
-    printf("PASS: cardEffect(mine): choosing treasure with too high a value returns -1.");
+    printf("PASS: cardEffect(mine): choosing treasure with too high a value returns -1.\n");
   } else{
-    printf("FAIL: cardEffect(mine): choosing treasure with too high a value does not return -1.");
+    printf("FAIL: cardEffect(mine): choosing treasure with too high a value does not return -1.\n");
   }
 }

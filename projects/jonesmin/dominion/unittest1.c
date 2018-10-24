@@ -36,9 +36,9 @@ int main() {
   state1->supplyCount[province] = 0;
   int result1 = isGameOver(state1);
   if(result1 == 1) {
-    printf("PASS: isGameOver: TRUE when province cards have all been used");
+    printf("PASS: isGameOver: TRUE when province cards have all been used\n");
   } else{
-    printf("FAIL: isGameOver: FALSE when province cards ahve all been used.");
+    printf("FAIL: isGameOver: FALSE when province cards ahve all been used.\n");
   }
   
   struct gameState* state2 = malloc(sizeof(struct gameState));
@@ -51,9 +51,9 @@ int main() {
   state2->supplyCount[village] = 0;
   int result2 = isGameOver(state2);
   if(result2 == 1) {
-    printf("PASS: isGameOver: TRUE when three card types have been completely used up.");
+    printf("PASS: isGameOver: TRUE when three card types have been completely used up.\n");
   } else{
-    printf("FAIL: isGameOver: FALSE when three card types have been completely used up.");
+    printf("FAIL: isGameOver: FALSE when three card types have been completely used up.\n");
   }
   
   struct gameState* state3 = malloc(sizeof(struct gameState));
@@ -62,8 +62,8 @@ int main() {
   }
   int result3 = isGameOver(state3);
   if(result3 == 0) {
-    printf("PASS: isGameOver: FALSE when no cards are all used up.");
+    printf("PASS: isGameOver: FALSE when no cards are all used up.\n");
   } else{
-    printf("FAIL: isGameOver: TRUE when no cards are all used up.");
+    printf("FAIL: isGameOver: TRUE when no cards are all used up.\n");
   }
 }

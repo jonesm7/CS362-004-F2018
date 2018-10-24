@@ -34,24 +34,24 @@ int main() {
   state1->hand[playerIndex][0] = smithy;
   cardEffect(smithy, -1, -1, -1, state1, 0, NULL);
   if(state1->handCount[playerIndex] == 7) {
-    printf("PASS: cardEffect(smithy): handCount is seven");
+    printf("PASS: cardEffect(smithy): handCount is seven\n");
   } else{
-    printf("FAIL: cardEffect(smithy): handCount is not seven.");
+    printf("FAIL: cardEffect(smithy): handCount is not seven.\n");
   }
   if(state1->playedCardCount == 1) {
-    printf("PASS: cardEffect(smithy): playerCardCount has increased by one.");
+    printf("PASS: cardEffect(smithy): playerCardCount has increased by one.\n");
   } else{
-    printf("FAIL: cardEffect(smithy): playerCardCount has increased by one.");
+    printf("FAIL: cardEffect(smithy): playerCardCount has increased by one.\n");
   }
   if(state1->discardCount[playerIndex] == 1) {
-    printf("PASS: cardEffect(smithy): only one card was played.");
+    printf("PASS: cardEffect(smithy): only one card was played.\n");
   } else{ 
-    printf("FAIL: cardEffect(smithy): something other than one card was played.");
+    printf("FAIL: cardEffect(smithy): something other than one card was played.\n");
   }
   if(state1->discard[playerIndex][0] == smithy) {
-    printf("PASS: cardEffect(smithy): the smithy card was discarded.");
+    printf("PASS: cardEffect(smithy): the smithy card was discarded.\n");
   } else{ 
-    printf("FAIL: cardEffect(smithy): the smithy card was not discarded.");
+    printf("FAIL: cardEffect(smithy): the smithy card was not discarded.\n");
   }
 
 }

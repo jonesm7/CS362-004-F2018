@@ -48,65 +48,63 @@ int main() {
   }
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
   if(state1->handCount[playerIndex] == 6) {
-    printf("PASS: cardEffect(adventurer): handCount is 6");
+    printf("PASS: cardEffect(adventurer): handCount is 6\n");
   } else{
-    printf("FAIL: cardEffect(adventurer): handCount is not 6.");
+    printf("FAIL: cardEffect(adventurer): handCount is not 6.\n");
   }
   if(state1->hand[playerIndex][5] == copper) {
-    printf("PASS: cardEffect(adventurer): last card is a copper.");
+    printf("PASS: cardEffect(adventurer): last card is a copper.\n");
   } else{
-    printf("FAIL: cardEffect(adventurer): last card is not a copper.");
+    printf("FAIL: cardEffect(adventurer): last card is not a copper.\n");
   }
   if(state1->discardCount[playerIndex] == 1) {
-    printf("PASS: cardEffect(adventurer): only 1 card was played.");
+    printf("PASS: cardEffect(adventurer): only 1 card was played.\n");
   } else{ 
-    printf("FAIL: cardEffect(adventurer): something other than 1 card was played.")
+    printf("FAIL: cardEffect(adventurer): something other than 1 card was played.\n");
   }
   if(state1->discard[playerIndex][0] == adventurer) {
-    printf("PASS: cardEffect(adventurer): the adventurer card was discarded.");
+    printf("PASS: cardEffect(adventurer): the adventurer card was discarded.\n");
   } else{ 
-    printf("FAIL: cardEffect(adventurer): the adventurer card was not discarded.")
+    printf("FAIL: cardEffect(adventurer): the adventurer card was not discarded.\n");
   }
   
    initializeGame(numPlayers, kingdomCards, randomSeed, state1);
-  int i;
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
     state1->deck[playerIndex][i] = silver;
   }
   state1->deck[playerIndex][state1->deckCount[playerIndex]-1] = smithy;
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
-  if(state1->handCount[palyerIndex] == 6) {
-    printf("PASS: cardEffect(adventurer): handCount is 6");
+  if(state1->handCount[playerIndex] == 6) {
+    printf("PASS: cardEffect(adventurer): handCount is 6\n");
   } else{
-    printf("FAIL: cardEffect(adventurer): handCount is not 6.");
+    printf("FAIL: cardEffect(adventurer): handCount is not 6.\n");
   }
   if(state1->hand[playerIndex][5] == silver) {
-    printf("PASS: cardEffect(adventurer): last card is a silver.");
+    printf("PASS: cardEffect(adventurer): last card is a silver.\n");
   } else{
-    printf("FAIL: cardEffect(adventurer): last card is not a silver.");
+    printf("FAIL: cardEffect(adventurer): last card is not a silver.\n");
   }
   if(state1->discardCount[playerIndex] == 2) {
-    printf("PASS: cardEffect(adventurer): 2 cards were played.");
+    printf("PASS: cardEffect(adventurer): 2 cards were played.\n");
   } else{ 
-    printf("FAIL: cardEffect(adventurer): something other than 2 cards were played.")
+    printf("FAIL: cardEffect(adventurer): something other than 2 cards were played.\n");
   }
   if(state1->discard[playerIndex][0] == smithy) {
-    printf("PASS: cardEffect(adventurer): the smithy card was discarded.");
+    printf("PASS: cardEffect(adventurer): the smithy card was discarded.\n");
   } else{ 
-    printf("FAIL: cardEffect(adventurer): the smithy card was not discarded.")
+    printf("FAIL: cardEffect(adventurer): the smithy card was not discarded.\n");
   }
     
   
   initializeGame(numPlayers, kingdomCards, randomSeed, state1);
-  int i;
   for(i = 0; i < state1->deckCount[playerIndex]; i++) {
     state1->deck[playerIndex][i] = smithy;
   }
   cardEffect(adventurer, -1, -1, -1, state1, 0, NULL);
-  if(state1->handcount[playerIndex] == 4) {
-    printf("PASS: cardEffect(adventurer): handCount is 4");
+  if(state1->handCount[playerIndex] == 4) {
+    printf("PASS: cardEffect(adventurer): handCount is 4\n");
   } else{
-    printf("FAIL: cardEffect(adventurer): handCount is not 4.");
+    printf("FAIL: cardEffect(adventurer): handCount is not 4.\n");
   }
   
 
