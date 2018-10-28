@@ -12,16 +12,18 @@ char inputChar()
   return chars[randIndex];
 }
 
+int COMMAND_LEN = 5;
 char* commandChars = "rest";
-char* command = ".....";
+char* command[COMMAND_LEN+1];
 char *inputString()
 {
   int i;
-  for (i = 0; i < strlen(command); i++) {
+  for (i = 0; i < COMMAND_LEN; i++) {
     int randIndex;
     randIndex = rand()%strlen(commandChars);
     command[i] = commandChars[randIndex];
   }
+  command[COMMAND_LEN] = '\0';
   return command;
 }
 
