@@ -12,16 +12,17 @@ char inputChar()
   return chars[randIndex];
 }
 
-#define COMMAND_LEN 5
+#define COMMAND_LEN 6
+#define COMMAND_CHARS 5
 
-char* commandChars = "rest";
+char* commandChars = "rest\0";
 char command[COMMAND_LEN+1];
 char *inputString()
 {
   int i;
   for (i = 0; i < COMMAND_LEN; i++) {
     int randIndex;
-    randIndex = rand()%strlen(commandChars);
+    randIndex = rand()%COMMAND_CHARS;
     command[i] = commandChars[randIndex];
   }
   command[COMMAND_LEN] = '\0';
