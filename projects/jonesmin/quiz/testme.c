@@ -12,9 +12,10 @@ char inputChar()
   return chars[randIndex];
 }
 
-int COMMAND_LEN = 5;
+#define COMMAND_LEN 5
+
 char* commandChars = "rest";
-char* command[COMMAND_LEN+1];
+char command[COMMAND_LEN+1];
 char *inputString()
 {
   int i;
