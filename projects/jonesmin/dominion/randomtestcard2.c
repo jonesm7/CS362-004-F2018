@@ -1,3 +1,7 @@
+#include <stdlib.h>     // srand, rand
+#include <time.h>       // time
+#include "dominion.h"
+#include "testhelpers.h"
 
 /*
 int remodelCardEffect(struct gameState *state, int currentPlayer, int choice1, int choice2,int handPos) {
@@ -34,7 +38,7 @@ int i;
 
 */
 
-int run() {
+void run() {
   srand(time(0));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
@@ -67,11 +71,13 @@ int run() {
   int returnValue = cardEffect(remodel, inputCard, outputCardType, -1, state1, remodelIndex, NULL);
   
   if(getCost(inputCardType) + 2 <= getCost(outputCardType) && inputCard != remodelIndex) {
-    checkIntEquals(0, returnValue);
-    checkIntEqulas(originalHandSize - 1, state1->handCount[playerIndex]);
+    checkIntEquals(0, returnValue, "randomtestcard2: valid remodel: checking return value");
+    checkIntEquals(originalHandSize - 1, state1->handCount[playerIndex],
+                   "randomtestcard2: valid remodel: checking handCount");
   } else {
-    checkIntEquals(-1, returnValue);
-    checkIntEquals(originalHandSize, state1->handCount[playerIndex]);
+    checkIntEquals(-1, returnValue, "randomtestcard2: invalid remodel: checking return value");
+    checkIntEquals(originalHandSize, state1->handCount[playerIndex],
+                   "randomtestcard2: invalid remodel: checking handCount");
   }
 }
 
@@ -80,4 +86,5 @@ int main() {
   for(i = 0; i < 10000; i++) {
     run();
   }
+  return 0;
 }

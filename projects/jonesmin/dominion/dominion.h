@@ -134,4 +134,6 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
+int getCost(int cardNumber);
+
 #endif
