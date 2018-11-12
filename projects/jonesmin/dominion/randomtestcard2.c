@@ -39,7 +39,6 @@ int i;
 */
 
 void run() {
-  srand(time(0));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
 
@@ -82,6 +81,7 @@ void run() {
 }
 
 int main() {
+  srand(time(0));
   int i;
   for(i = 0; i < 10000; i++) {
     run();

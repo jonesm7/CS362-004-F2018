@@ -1,4 +1,5 @@
 #include <stdlib.h>     // srand, rand
+#include <stdio.h>
 #include <time.h>       // time
 #include "dominion.h"
 #include "testhelpers.h"
@@ -34,7 +35,6 @@ int adventurerCardEffect(struct gameState *state, int currentPlayer) {
 */
 
 void run() {
-  srand(time(0));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
 
@@ -50,7 +50,7 @@ void run() {
   int treasureCardsInDeck = 0;
   int nonTreasureCardsToDraw = 0;
   state1->deckCount[playerIndex] = deckSize;
-  for(i = deckSize - 1; i >= 0; i++) {
+  for(i = deckSize - 1; i >= 0; i--) {
      int cardClass = rand()% 3;
      int cardType;
      // card class 0: treasure
@@ -103,25 +103,28 @@ void run() {
   if(treasureCardsInDeck == 2) {
     checkIntEquals(deckSize - treasureCardsInDeck - nonTreasureCardsToDraw, state1->deckCount[playerIndex],
                    "randomtestadventurer: treasureCardsInDeck == 2: checking deckCount");
-    // check that discard pile is unchanged
-    checkIntEquals(discardPileSize,state1->discardCount[playerIndex],
+    // check that discard pile has non treasure cards that were discarded
+    checkIntEquals(discardPileSize + nonTreasureCardsToDraw, state1->discardCount[playerIndex],
                    "randomtestadventurer: treasureCardsInDeck == 2: checking discardCount"); 
     // check that hand count is found treasure card count
-    checkIntEquals(originalHandSize + 2 - 1, state1->handCount[playerIndex],
+    checkIntEquals(originalHandSize + treasureCardsInDeck - 1, state1->handCount[playerIndex],
                    "randomtestadventurer: treasureCardsInDeck == 2: checking handCount");
+    checkIntEquals(1, state1->playedCardCount, "randomtestadventurer: treasureCardsInDeck == 2: checking playedCardCount");
   } else {
     // check that final deck + discard is original minus found treasure card count
     checkIntEquals(deckSize + discardPileSize - treasureCardsInDeck - treasureCardsInDiscard,
                    state1->deckCount[playerIndex] + state1->discardCount[playerIndex],
                    "randomtestadventurer: treasureCardsInDeck < 2: checking deckCount + discardCount");
-    // check that hand count is found treasure card count
+    // check that hand count is original plus found treasure cards minus the adventurer
     checkIntEquals(originalHandSize + treasureCardsInDeck + treasureCardsInDiscard - 1,
                    state1->handCount[playerIndex],
-                   "randomtestadventurer: treasureCardsInDeck == 2: checking handCount");
+                   "randomtestadventurer: treasureCardsInDeck < 2: checking handCount");
+    checkIntEquals(1, state1->playedCardCount, "randomtestadventurer: treasureCardsInDeck < 2: checking playedCardCount");
   }
 }
 
 int main() {
+  srand(time(0));
   int i;
   for(i = 0; i < 10000; i++) {
     run();
