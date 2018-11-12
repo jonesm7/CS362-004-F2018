@@ -67,6 +67,27 @@ unittestresults: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c car
 	./cardtest4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
+randomtestadventurer.out: randomtestadventurer.c dominion.o testhelpers.o
+	echo "Running tests:" > randomtestadventurer.out
+	echo "randomtestadventurer.c:" >> randomtestadventurer.out
+	gcc -o randomtestadventurer randomtestadventurer.c testhelpers.o dominion.o rngs.o $(CFLAGS)
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov dominion.c >> randomtestadventurer.out
+
+randomtestcard1.out: randomtestcard1.c dominion.o testhelpers.o
+	echo "Running tests:" > randomtestcard1.out
+	echo "randomtestcard1.c:" >> randomtestcard1.out
+	gcc -o randomtestcard1 randomtestcard1.c testhelpers.o dominion.o rngs.o $(CFLAGS)
+	./randomtestcard1 >> randomtestcard1.out
+	gcov dominion.c >> randomtestcard1.out
+
+randomtestcard2.out: randomtestcard2.c dominion.o testhelpers.o
+	echo "Running tests:" > randomtestcard2.out
+	echo "randomtestcard2.c:" >> randomtestcard2.out
+	gcc -o randomtestcard2 randomtestcard2.c testhelpers.o dominion.o rngs.o $(CFLAGS)
+	./randomtestcard2 >> randomtestcard2.out
+	gcov dominion.c >> randomtestcard2.out
+
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
