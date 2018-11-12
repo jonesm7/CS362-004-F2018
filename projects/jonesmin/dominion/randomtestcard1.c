@@ -1,3 +1,7 @@
+#include <stdlib.h>     // srand, rand
+#include <time.h>       // time
+#include "dominion.h"
+#include "testhelpers.h"
 
 /*
 int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int choice2, int handPos) {
@@ -53,7 +57,7 @@ int mineCardEffect(struct gameState *state, int currentPlayer, int choice1, int 
 
 */
 
-int run() {
+void run() {
   srand(time(0));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
            sea_hag, tribute, smithy};
@@ -96,40 +100,44 @@ int run() {
   int inputCard = rand()% 5;
   
   int inputCardType = state1->hand[playerIndex][inputCard];
-  if(inputCardType == copper || inputCardtype == silver) {
+  if(inputCardType == copper || inputCardType == silver) {
     int choiceValidity = rand() % 2;
-    if(choiceValidity == 0) {
+    if(choiceValidity == 1) {
       int outputCardType = inputCardType + 1;
       cardEffect(mine, inputCard, outputCardType, -1, state1, mineIndex, NULL);
-      checkIntEquals(originalHandSize - 1, state1->handCout[playerIndex]);
+      checkIntEquals(originalHandSize - 1, state1->handCount[playerIndex],
+                     "randomtestcard1: input valid: checking handCount");
       int newTreasureCardTypes[3];
       for(i = 0; i < 3; i++) {
         newTreasureCardTypes[i] = 0;
       }
       for(i = 0; i < state1->handCount[playerIndex]; i ++) {
-        newTreasureCardTypes[state1->hand[playerIndex] - copper] ++;
+        newTreasureCardTypes[state1->hand[playerIndex][i] - copper] ++;
       }
         
       treasureCardTypes[inputCardType - copper] --;
       treasureCardTypes[outputCardType - copper] ++;
       for(i = 0; i < 3; i++){
-        checkIntEquals(treasureCardtypes[i], newTreasureCardTypes[i]);
+        checkIntEquals(treasureCardTypes[i], newTreasureCardTypes[i],
+                       "randomtestcard1: input valid: checking card");
       }
     } else { 
       int outputCardType = rand()% treasure_map;
-      if(ourputCardType == inputCardType + 1) {
+      if(outputCardType == inputCardType + 1) {
         outputCardType = treasure_map;
       }
       int returnValue = cardEffect(mine, inputCard, outputCardType, -1, state1, mineIndex, NULL);
-      checkIntEquals(-1, returnValue);
-      checkIntEquals(originalHandSize, state1->handCout[playerIndex]);
+      checkIntEquals(-1, returnValue, "randomtestcard1: invalid replacement: checking return value");
+      checkIntEquals(originalHandSize, state1->handCount[playerIndex],
+                     "randomtestcard1: invalid replacement: checking handCount");
     }
   } else {
     int outputCardType = rand()% treasure_map + 1;
 
     int returnValue = cardEffect(mine, inputCard, outputCardType, -1, state1, mineIndex, NULL);
-    checkIntEquals(-1, returnValue);
-    checkIntEquals(originalHandSize, state1->handCout[playerIndex]);
+    checkIntEquals(-1, returnValue, "randomtestcard1: invalid input card: checking return value");
+    checkIntEquals(originalHandSize, state1->handCount[playerIndex],
+                   "randomtestcard1: invalid input card: checking handCount");
   }
 
 }
@@ -139,4 +147,5 @@ int main() {
   for(i = 0; i < 10000; i++) {
     run();
   }
+  return 0;
 }
