@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class MindyInputPartitionTest extends TestCase {
+public class UrlValidatorInputPartitionTests extends TestCase {
     public void testOverallStringPartition() {
         UrlValidator validator = new UrlValidator();
         assertFalse(validator.isValid(null));
